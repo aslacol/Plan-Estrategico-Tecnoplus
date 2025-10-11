@@ -1,0 +1,1331 @@
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Estratégico de Marketing Digital | Tecnopluscol - Transformación Digital</title>
+    <meta name="description" content="Plan estratégico integral para incrementar ventas digitales en 40%. Descarga el informe completo en formato APA.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/CountUp/1.8.2/countUp.min.js"></script>
+    <!-- Librería para exportar a DOCX (APA 7) -->
+    <script src="https://cdn.jsdelivr.net/npm/html-docx-js/dist/html-docx.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0f1e;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            color: #e5e7eb;
+            overflow-x: hidden;
+        }
+
+        /* Animación de fondo flotante */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Gradientes personalizados */
+        .gradient-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .gradient-purple-pink {
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+        }
+
+        .gradient-blue-purple {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+
+        /* Efecto glassmorphism mejorado */
+        .glass-card {
+            background: rgba(31, 41, 55, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: rgba(168, 85, 247, 0.5);
+            box-shadow: 
+                0 20px 60px 0 rgba(168, 85, 247, 0.3),
+                0 0 40px 0 rgba(236, 72, 153, 0.2);
+        }
+
+        /* Texto con gradiente */
+        .gradient-text {
+            background: linear-gradient(135deg, #a855f7, #ec4899, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: gradient-shift 3s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+
+        /* Botón premium mejorado */
+        .btn-premium {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            border-radius: 50px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(168, 85, 247, 0.4);
+            z-index: 1;
+        }
+
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ec4899, #f97316);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn-premium:hover::before {
+            left: 0;
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(236, 72, 153, 0.6);
+        }
+
+        /* Efecto de pulso para CTAs */
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+        .pulse-ring { position: relative; }
+        .pulse-ring::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%; height: 100%;
+            border-radius: 50px;
+            background: rgba(168, 85, 247, 0.4);
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        /* Contador animado */
+        .stat-number { font-size: 3.5rem; font-weight: 900; line-height: 1; }
+
+        /* Línea de progreso */
+        .progress-bar {
+            height: 8px; background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px; overflow: hidden; position: relative;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #a855f7, #ec4899);
+            border-radius: 10px;
+            transition: width 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* Timeline mejorado */
+        .timeline-item { position: relative; padding-left: 3rem; }
+        .timeline-item::before {
+            content: ''; position: absolute; left: 0; top: 0;
+            width: 2px; height: 100%;
+            background: linear-gradient(180deg, #a855f7, #ec4899);
+        }
+        .timeline-dot {
+            position: absolute; left: -8px; top: 0; width: 18px; height: 18px;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+        }
+
+        /* Tabla mejorada */
+        .table-modern { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; border-radius: 12px; }
+        .table-modern th {
+            background: linear-gradient(135deg, #374151, #1f2937);
+            color: #f9fafb; padding: 1rem; text-align: left; font-weight: 700;
+            border-bottom: 2px solid #a855f7;
+        }
+        .table-modern td {
+            background: rgba(31, 41, 55, 0.3);
+            padding: 0.875rem 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .table-modern tr:hover td { background: rgba(168, 85, 247, 0.1); }
+
+        /* Sección Hero mejorada */
+        .hero-section {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+        .hero-blob {
+            position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.3; animation: blob 20s infinite;
+        }
+        @keyframes blob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(20px, -50px) scale(1.1); }
+            50% { transform: translate(-20px, 20px) scale(0.9); }
+            75% { transform: translate(50px, 50px) scale(1.05); }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute; bottom: 30px; left: 50%;
+            transform: translateX(-50%); animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Efecto de revelación para el contenido */
+        .reveal { opacity: 0; transform: translateY(30px); }
+        .reveal.active { opacity: 1; transform: translateY(0); transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
+
+        /* Número de página fijo (solo visual, no para Word) */
+        .page-number {
+            position: fixed; top: 20px; right: 30px; color: rgba(255, 255, 255, 0.3);
+            font-size: 0.875rem; z-index: 1000;
+        }
+
+        /* Navegación mejorada */
+        .nav-sticky {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(10, 15, 30, 0.95); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+            z-index: 1000; transform: translateY(-100%); transition: transform 0.3s ease;
+        }
+        .nav-sticky.active { transform: translateY(0); }
+
+        /* Chart container */
+        .chart-container { position: relative; height: 300px; margin: 2rem 0; }
+
+        /* Badge premium */
+        .badge {
+            display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem;
+            background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.5);
+            border-radius: 50px; font-size: 0.875rem; font-weight: 600; color: #c084fc;
+        }
+
+        /* Sección de contenido mejorada */
+        #report-content h2 {
+            margin-top: 3rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem;
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(90deg, #a855f7, #ec4899); border-image-slice: 1;
+            font-size: 2.25rem; font-weight: 800;
+        }
+        #report-content h3 {
+            margin-top: 2rem; margin-bottom: 1rem;
+            font-size: 1.75rem; font-weight: 700; color: #c084fc;
+        }
+        #report-content h4 {
+            margin-top: 1.5rem; margin-bottom: 0.875rem;
+            font-size: 1.25rem; font-weight: 600; color: #e9d5ff;
+        }
+        #report-content p, #report-content li {
+            font-size: 1.0625rem; line-height: 1.8; color: #d1d5db; margin-bottom: 1rem;
+        }
+        #report-content ul, #report-content ol { margin-left: 1.5rem; margin-bottom: 1.5rem; }
+        #report-content strong { color: #f3e8ff; font-weight: 700; }
+
+        /* Loading animation */
+        .loading-spinner {
+            border: 3px solid rgba(168, 85, 247, 0.3);
+            border-top: 3px solid #a855f7; border-radius: 50%;
+            width: 40px; height: 40px; animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Mejora visual del informe (solo pantalla) */
+        @media (min-width: 1024px) {
+            #report-content {
+                background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.03));
+                border: 1px solid rgba(255,255,255,0.08);
+            }
+            #report-content .prose * { letter-spacing: 0.1px; }
+        }
+
+        /* Retoques CTA de descarga */
+        #download-section .btn-premium { font-size: 1.125rem; padding: 1rem 2.25rem; }
+        #download-section .glass-card { border: 1px dashed rgba(168, 85, 247, 0.25); }
+    </style>
+</head>
+
+<body>
+    <!-- Navegación Sticky -->
+    <nav id="sticky-nav" class="nav-sticky">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i data-lucide="rocket" class="w-6 h-6 text-purple-400"></i>
+                <span class="font-bold text-lg">Plan Estratégico</span>
+            </div>
+            <div class="hidden md:flex gap-6">
+                <a href="#hero" class="hover:text-purple-400 transition">Inicio</a>
+                <a href="#dashboard" class="hover:text-purple-400 transition">Dashboard</a>
+                <a href="#analisis" class="hover:text-purple-400 transition">Análisis</a>
+                <a href="#plan-marketing" class="hover:text-purple-400 transition">Plan</a>
+                <a href="#download-section" class="btn-premium pulse-ring text-sm py-2 px-4">
+                    <i data-lucide="download" class="w-4 h-4"></i>
+                    Descargar
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <!-- Blobs animados de fondo -->
+        <div class="hero-blob" style="width: 500px; height: 500px; background: #a855f7; top: -10%; left: -10%;"></div>
+        <div class="hero-blob" style="width: 400px; height: 400px; background: #ec4899; bottom: -10%; right: -10%; animation-delay: -5s;"></div>
+        <div class="hero-blob" style="width: 350px; height: 350px; background: #3b82f6; top: 50%; left: 50%; animation-delay: -10s;"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-5xl mx-auto">
+                <div data-aos="fade-down" data-aos-duration="800">
+                    <span class="badge mb-6">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        Plan Profesional 2025
+                    </span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    Transformación <span class="gradient-text">Digital</span><br>
+                    para Tecnopluscol
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    Plan estratégico integral de marketing digital diseñado para <strong class="text-purple-400">incrementar ventas en un 40%</strong> y consolidar el liderazgo en el mercado colombiano.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                    <a href="#download-section" class="btn-premium pulse-ring">
+                        <i data-lucide="download" class="w-6 h-6"></i>
+                        Descargar Informe Completo
+                    </a>
+                    <a href="#dashboard" class="glass-card px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition flex items-center gap-2">
+                        <i data-lucide="eye" class="w-5 h-5"></i>
+                        Ver Dashboard
+                    </a>
+                </div>
+
+                <!-- Mini estadísticas hero -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+                    <div class="glass-card p-4 rounded-xl">
+                        <div class="text-3xl font-bold gradient-text">+40%</div>
+                        <div class="text-sm text-gray-400">Crecimiento Ventas</div>
+                    </div>
+                    <div class="glass-card p-4 rounded-xl">
+                        <div class="text-3xl font-bold gradient-text">3,000</div>
+                        <div class="text-sm text-gray-400">Seguidores Meta</div>
+                    </div>
+                    <div class="glass-card p-4 rounded-xl">
+                        <div class="text-3xl font-bold gradient-text">20</div>
+                        <div class="text-sm text-gray-400">Ventas Semanales</div>
+                    </div>
+                    <div class="glass-card p-4 rounded-xl">
+                        <div class="text-3xl font-bold gradient-text">12</div>
+                        <div class="text-sm text-gray-400">Meses de Plan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <i data-lucide="chevron-down" class="w-8 h-8 text-purple-400"></i>
+        </div>
+    </section>
+
+    <!-- Sección de Valor -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">¿Por qué este plan es <span class="gradient-text">diferente?</span></h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">Estrategia basada en datos, enfocada en resultados medibles y diseñada específicamente para tu negocio.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 gradient-purple-pink rounded-2xl flex items-center justify-center mb-6 floating">
+                        <i data-lucide="brain" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Estrategia Inteligente</h3>
+                    <p class="text-gray-400 leading-relaxed">Análisis FLOR completo, estrategias competitivas de Porter y segmentación precisa del mercado objetivo.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 gradient-blue-purple rounded-2xl flex items-center justify-center mb-6 floating" style="animation-delay: -2s;">
+                        <i data-lucide="trending-up" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Resultados Medibles</h3>
+                    <p class="text-gray-400 leading-relaxed">Objetivos SMART con KPIs específicos para medir el éxito en cada etapa del plan estratégico.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 floating" style="animation-delay: -4s;">
+                        <i data-lucide="wallet" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Bajo Presupuesto</h3>
+                    <p class="text-gray-400 leading-relaxed">Tácticas orgánicas y herramientas gratuitas que maximizan el ROI sin requerir grandes inversiones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Estratégico -->
+    <section id="dashboard" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Dashboard <span class="gradient-text">Estratégico</span></h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">Visualización ejecutiva de los pilares fundamentales del plan</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <a href="#objetivos" class="glass-card rounded-2xl p-8 group" data-aos="flip-left" data-aos-delay="100">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-20 h-20 gradient-purple-pink rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="trending-up" class="w-10 h-10 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Objetivo Principal</h3>
+                        <p class="text-gray-400 leading-relaxed">Incrementar ventas digitales en un <strong class="text-purple-400">40%</strong> en los próximos 12 meses.</p>
+                        <div class="progress-bar w-full mt-6">
+                            <div class="progress-fill" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="#estrategias-competitivas" class="glass-card rounded-2xl p-8 group" data-aos="flip-left" data-aos-delay="200">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-20 h-20 gradient-blue-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="gem" class="w-10 h-10 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Belleza Pro</h3>
+                        <span class="badge mb-3">Enfoque con Diferenciación</span>
+                        <p class="text-gray-400 leading-relaxed">Posicionarse como la autoridad técnica en uñas <em>soft gel</em>.</p>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="#estrategias-competitivas" class="glass-card rounded-2xl p-8 group" data-aos="flip-left" data-aos-delay="300">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-20 h-20 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="shield-check" class="w-10 h-10 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Tecnoplus Tech</h3>
+                        <span class="badge mb-3">Enfoque en Mejor Valor</span>
+                        <p class="text-gray-400 leading-relaxed">Competir con garantía local y soporte experto.</p>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="#estrategias-promocion" class="glass-card rounded-2xl p-8 group" data-aos="flip-left" data-aos-delay="400">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-20 h-20 gradient-purple-pink rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="send" class="w-10 h-10 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Canales Clave</h3>
+                        <div class="flex gap-2 mb-4">
+                            <i data-lucide="message-circle" class="w-6 h-6 text-green-400"></i>
+                            <i data-lucide="instagram" class="w-6 h-6 text-pink-400"></i>
+                            <i data-lucide="facebook" class="w-6 h-6 text-blue-400"></i>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">WhatsApp Business, Instagram Reels y Facebook Marketplace.</p>
+                    </div>
+                </a>
+
+                <!-- Card 5 -->
+                <a href="#segmento-mercado" class="glass-card rounded-2xl p-8 group" data-aos="flip-left" data-aos-delay="500">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-20 h-20 gradient-blue-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="users" class="w-10 h-10 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Público Objetivo</h3>
+                        <p class="text-gray-400 leading-relaxed">"Manicurista Emprendedora" y "El Cuidador del Hogar".</p>
+                    </div>
+                </a>
+
+                <!-- Card 6 -->
+                <a href="#objetivos" class="glass-card rounded-2xl p-8 group" data-aos="flip-left" data-aos-delay="600">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-20 h-20 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="target" class="w-10 h-10 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Métrica de Éxito</h3>
+                        <div class="stat-number text-4xl gradient-text mb-2">20</div>
+                        <p class="text-gray-400 leading-relaxed">Ventas semanales a través de canales digitales en 3 meses.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Estadísticas Animadas -->
+    <section class="py-20 bg-gradient-to-r from-purple-900/20 to-pink-900/20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-number gradient-text mb-2" id="stat-followers">811</div>
+                    <div class="text-gray-400 font-semibold">Seguidores Actuales</div>
+                </div>
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-number gradient-text mb-2" id="stat-growth">40</div>
+                    <div class="text-gray-400 font-semibold">% Crecimiento Meta</div>
+                </div>
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-number gradient-text mb-2" id="stat-months">12</div>
+                    <div class="text-gray-400 font-semibold">Meses del Plan</div>
+                </div>
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stat-number gradient-text mb-2" id="stat-years">7</div>
+                    <div class="text-gray-400 font-semibold">Años de Experiencia</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visualización de Datos -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="glass-card rounded-2xl p-8 md:p-12" data-aos="fade-up">
+                <h3 class="text-3xl font-bold mb-8 text-center">Proyección de Crecimiento</h3>
+                <div class="chart-container">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mt-8">
+                <div class="glass-card rounded-2xl p-8" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-6">Distribución de Canales</h3>
+                    <div class="chart-container" style="height: 250px;">
+                        <canvas id="channelsChart"></canvas>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-8" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-6">Objetivos SMART</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-semibold">Comunidad Digital</span>
+                                <span class="text-sm text-purple-400">60%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-semibold">Automatización WhatsApp</span>
+                                <span class="text-sm text-purple-400">80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-semibold">Conversión de Ventas</span>
+                                <span class="text-sm text-purple-400">75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-semibold">Retención de Clientes</span>
+                                <span class="text-sm text-purple-400">20%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 20%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline del Plan -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Hoja de Ruta <span class="gradient-text">2025</span></h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">Plan de implementación trimestral</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="badge">Q1 2025</span>
+                            <h4 class="text-xl font-bold">Fase 1: Fundamentos</h4>
+                        </div>
+                        <p class="text-gray-400">Configuración de WhatsApp Business, optimización de perfiles sociales y creación de catálogo digital.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="badge">Q2 2025</span>
+                            <h4 class="text-xl font-bold">Fase 2: Crecimiento</h4>
+                        </div>
+                        <p class="text-gray-400">Estrategia de contenido consistente, colaboraciones con micro-influencers y activación de Marketplace.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="badge">Q3 2025</span>
+                            <h4 class="text-xl font-bold">Fase 3: Optimización</h4>
+                        </div>
+                        <p class="text-gray-400">Análisis de métricas, ajuste de estrategias y escalamiento de tácticas exitosas.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="300">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="badge">Q4 2025</span>
+                            <h4 class="text-xl font-bold">Fase 4: Consolidación</h4>
+                        </div>
+                        <p class="text-gray-400">Fidelización de clientes, programas de referidos y evaluación de resultados anuales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Descarga Premium -->
+    <section id="download-section" class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-pink-900/30"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <div data-aos="zoom-in">
+                    <div class="inline-flex items-center gap-2 glass-card px-6 py-3 rounded-full mb-6">
+                        <i data-lucide="file-text" class="w-5 h-5 text-purple-400"></i>
+                        <span class="font-semibold">Informe Profesional</span>
+                    </div>
+                </div>
+
+                <h2 class="text-4xl md:text-6xl font-black mb-6" data-aos="fade-up" data-aos-delay="100">
+                    Descarga el Informe<br>
+                    <span class="gradient-text">Completo</span>
+                </h2>
+
+                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    Obtén el documento completo en formato Pdf con normas APA 7ª edición, incluyendo portada profesional, análisis detallado y estrategias accionables.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-10" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card p-6 rounded-xl">
+                        <i data-lucide="check-circle" class="w-8 h-8 text-green-400 mx-auto mb-3"></i>
+                        <div class="font-semibold">Formato APA 7</div>
+                        <div class="text-sm text-gray-400">Normas académicas</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <i data-lucide="file-text" class="w-8 h-8 text-blue-400 mx-auto mb-3"></i>
+                        <div class="font-semibold">Portada Profesional</div>
+                        <div class="text-sm text-gray-400">Diseño ejecutivo</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <i data-lucide="download" class="w-8 h-8 text-purple-400 mx-auto mb-3"></i>
+                        <div class="font-semibold">Descarga Directa</div>
+                        <div class="text-sm text-gray-400">Formato Pdf</div>
+                    </div>
+                </div>
+
+                <button id="download-btn" class="btn-premium pulse-ring text-xl py-5 px-10" data-aos="flip-up" data-aos-delay="400">
+                    <i data-lucide="download" class="w-7 h-7"></i>
+                    Descargar Informe en Pdf
+                    <span class="text-sm opacity-75 ml-2">(APA 7ª Ed.)</span>
+                </button>
+
+                <p class="text-sm text-gray-500 mt-6">El documento incluye más de 15 páginas de análisis estratégico profesional</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Informe Completo -->
+    <main id="report-container" class="py-20">
+        <div class="container mx-auto px-6">
+            <div id="report-content" class="glass-card rounded-2xl p-8 md:p-12 lg:p-16 shadow-2xl max-w-6xl mx-auto">
+                
+                <!-- Header oculto para Word -->
+                <div id="word-header" style="display:none;">
+                    <div style="text-align: center; margin-bottom: 100px;">
+                        <h1 style="font-size: 24pt; font-weight: bold; margin-bottom: 30px;">PLAN ESTRATÉGICO DE MARKETING DIGITAL</h1>
+                        <p style="font-size: 14pt; margin-bottom: 10px;">Preparado para: Tecnopluscol</p>
+                        <p style="font-size: 12pt; margin-bottom: 10px;">Autor: Arnold López Ayala</p>
+                        <p style="font-size: 12pt; margin-bottom: 10px;">Fecha: 11 de octubre de 2025</p>
+                        <p style="font-size: 12pt;">Sincelejo, Colombia</p>
+                    </div>
+                    <div style="page-break-after: always;"></div>
+                </div>
+
+                <!-- Contenido del informe -->
+                <div class="prose prose-invert prose-lg max-w-none">
+                    
+                    <h2 id="identificacion">1. Identificación del Negocio</h2>
+
+                    <h4>Breve Reseña Histórica</h4>
+                    <p>Tecnopluscol es una empresa colombiana con 7 años de trayectoria que demuestra una notable capacidad de adaptación y visión de mercado.</p>
+                    <ul>
+                        <li><strong>2018:</strong> Nace en Sincelejo como un emprendimiento de accesorios para celulares.</li>
+                        <li><strong>2019:</strong> Pivota estratégicamente al identificar el auge de las uñas artificiales, convirtiéndose en <strong>pionera en la introducción del sistema <em>soft gel</em> en Colombia</strong>.</li>
+                        <li><strong>2022–2025:</strong> Se consolida en la categoría de uñas, enfocándose en el canal profesional (manicuristas y salones).</li>
+                        <li><strong>Hoy:</strong> Ha diversificado su portafolio para incluir una línea de tecnología con instrumentos de medición y dispositivos digitales de salud y belleza.</li>
+                    </ul>
+
+                    <h4>Misión, Visión y Objetivos</h4>
+                    <ul>
+                        <li><strong>Misión:</strong> Empoderar a profesionales de la belleza y a los hogares colombianos con productos de alta calidad y tecnología confiable, ofreciendo asesoría experta y una experiencia de compra cercana y accesible a través de canales digitales.</li>
+                        <li><strong>Visión:</strong> Para 2028, ser la marca colombiana de referencia para manicuristas profesionales que buscan innovación y calidad, y la opción más confiable para familias que adquieren tecnología de salud para el hogar.</li>
+                        <li><strong>Objetivos de Negocio:</strong>
+                            <ul>
+                                <li>Incrementar las ventas digitales en un 40% en los próximos 12 meses.</li>
+                                <li>Lograr que el 70% de las ventas se cierren a través de WhatsApp para optimizar la conversión.</li>
+                                <li>Construir una comunidad digital activa y leal que supere los 5,000 seguidores en 12 meses.</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4>Necesidades del Mercado que Satisface</h4>
+                    <ul>
+                        <li><strong>Profesionales de Uñas:</strong> Acceso a insumos profesionales, innovadores y confiables (<em>soft gel</em>), asesoría técnica para mejorar sus servicios, y un proveedor local que garantice entregas rápidas.</li>
+                        <li><strong>Consumidores y Técnicos:</strong> Disponibilidad de dispositivos de salud y medición (tensiómetros, oxímetros, etc.) a un precio justo, con garantía local, instrucciones claras y soporte postventa accesible.</li>
+                    </ul>
+                    
+                    <h4>Productos o Servicios que Ofrece</h4>
+                    <ul>
+                        <li><strong>Línea Belleza Pro:</strong> Sistemas completos para uñas <em>soft gel</em>, acrílicos, geles, primers, lámparas UV/LED, herramientas profesionales y material de capacitación.</li>
+                        <li><strong>Línea Tecnoplus Tech:</strong> Pinzas voltamperimétricas, multímetros, tensiómetros digitales, oxímetros de pulso, termómetros infrarrojos y básculas digitales.</li>
+                    </ul>
+
+                    <h4>Presencia en el Entorno Digital</h4>
+                    <ul>
+                        <li><strong>Canales Activos:</strong> Instagram, Facebook, WhatsApp Business y un perfil en el marketplace Véndelo.</li>
+                        <li><strong>Comunidad:</strong> 811 seguidores reales, lo que representa una base sólida pero con alto potencial de crecimiento.</li>
+                        <li><strong>Diagnóstico Digital:</strong> Fuerte credibilidad de producto pero baja notoriedad de marca. El proceso de ventas es mayormente manual, lo que representa un cuello de botella para escalar. La propuesta de valor no se comunica de forma clara y diferenciada para cada línea de negocio.</li>
+                    </ul>
+                    
+                    <h2 id="analisis">2. Análisis del Entorno</h2>
+                    
+                    <h4>Análisis del Entorno Externo (PEST - Colombia)</h4>
+                    <ul>
+                        <li><strong>Político:</strong> Estabilidad en las regulaciones para el e-commerce. La Ley de Protección de Datos y el Estatuto del Consumidor exigen políticas claras de privacidad, garantía y derecho de retracto, lo cual, si se comunica bien, genera confianza.</li>
+                        <li><strong>Económico:</strong> La sensibilidad al precio es alta. El auge de billeteras digitales (Nequi, Daviplata) facilita las transacciones. La volatilidad del dólar impacta los costos de importación, haciendo crucial una gestión de precios inteligente.</li>
+                        <li><strong>Sociocultural:</strong> Existe un <em>boom</em> del autocuidado y la profesionalización de oficios como la manicura. Los consumidores colombianos confían enormemente en las recomendaciones, los testimonios en redes sociales y la rapidez de respuesta por WhatsApp para decidir su compra.</li>
+                        <li><strong>Tecnológico:</strong> Alta penetración de smartphones y redes sociales. WhatsApp es el principal canal de ventas para pymes. Instagram y TikTok son claves para el descubrimiento de productos de belleza, mientras que Facebook Marketplace es un motor de ventas para productos de tecnología y hogar.</li>
+                    </ul>
+                    
+                    <h4>Análisis del Entorno Interno</h4>
+                    <ul>
+                        <li><strong>Segmento de Clientes:</strong>
+                            <ol>
+                                <li><strong>B2B Belleza:</strong> Manicuristas profesionales, dueñas de salones y estudiantes de belleza.</li>
+                                <li><strong>B2C Tecnología:</strong> Familias que cuidan de su salud, técnicos y estudiantes de áreas eléctricas/electrónicas.</li>
+                            </ol>
+                        </li>
+                        <li><strong>Principales Competidores:</strong>
+                            <ul>
+                                <li><strong>Belleza:</strong> Grandes distribuidores (Cromantic, Nail Factory), marcas importadas con presencia en redes y vendedores informales en marketplaces.</li>
+                                <li><strong>Tecnología:</strong> Grandes superficies (Alkosto, Éxito), tiendas especializadas online y vendedores en Mercado Libre.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Proveedores e Intermediarios:</strong> Se basa en la importación directa (ventaja competitiva) y utiliza empresas de logística nacionales para la distribución.</li>
+                        <li><strong>Grupos de Interés:</strong> Clientes (B2B y B2C), proveedores internacionales, empresas de envío y la comunidad de manicuristas.</li>
+                        <li><strong>Áreas Funcionales:</strong> La operación recae en áreas clave como Compras/Importación, Logística, y un área combinada de Marketing, Ventas y Servicio al Cliente (actualmente con alta carga manual).</li>
+                    </ul>
+                    
+                    <h4>Matriz FLOR (Fortalezas, Limitaciones, Oportunidades, Riesgos)</h4>
+                    <table class="table-modern">
+                        <thead>
+                            <tr>
+                                <th>FORTALEZAS (Internas)</th>
+                                <th>LIMITACIONES (Internas)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>F1.</strong> Pioneros y expertos en <em>soft gel</em> en Colombia.</td>
+                                <td><strong>L1.</strong> Baja notoriedad digital (811 seguidores).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>F2.</strong> 7 años de experiencia y reputación en el mercado.</td>
+                                <td><strong>L2.</strong> Procesos de venta manuales y poco automatizados.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>F3.</strong> Relación directa y de confianza con manicuristas.</td>
+                                <td><strong>L3.</strong> Propuesta de valor difusa (Belleza vs. Tecnología).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>F4.</strong> Importación directa que permite precios competitivos.</td>
+                                <td><strong>L4.</strong> Presupuesto de marketing muy limitado.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table-modern mt-6">
+                        <thead>
+                            <tr>
+                                <th>OPORTUNIDADES (Externas)</th>
+                                <th>RIESGOS (Externos)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>O1.</strong> Crecimiento del <em>social commerce</em> y ventas por WhatsApp.</td>
+                                <td><strong>R1.</strong> Fuerte competencia y guerra de precios en marketplaces.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>O2.</strong> Profesionalización y alta demanda en el sector de uñas.</td>
+                                <td><strong>R2.</strong> Volatilidad del dólar que afecta márgenes.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>O3.</strong> Potencial de micro-influencers para generar confianza.</td>
+                                <td><strong>R3.</strong> Cambios en los algoritmos de redes sociales que reducen el alcance.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>O4.</strong> Facebook Marketplace como canal gratuito de alta conversión para tecnología.</td>
+                                <td><strong>R4.</strong> Reclamaciones por garantía pueden afectar la reputación.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4>Diagnóstico de la Situación Actual</h4>
+                    <p>Tecnopluscol tiene un activo invaluable: <strong>la autoridad de ser pionero y experto en <em>soft gel</em></strong>. Sin embargo, esta fortaleza no se está comunicando eficazmente en el entorno digital. La principal barrera para el crecimiento no es la calidad del producto, sino la <strong>baja visibilidad y la falta de un sistema de ventas eficiente</strong>. La mezcla de dos líneas de negocio tan distintas confunde al público. La estrategia debe ser <strong>capitalizar la autoridad en uñas para construir una marca fuerte</strong> y usar la línea de tecnología como una fuente de ingresos rápida y de alta rotación a través de canales directos.</p>
+                    
+                    <h2 id="plan-marketing">3. Plan de Marketing Digital (Enfoque de Bajo Presupuesto)</h2>
+                    
+                    <h4 id="objetivos">Objetivos de Marketing Digital (SMART)</h4>
+                    <ol>
+                        <li><strong>Aumentar la Comunidad (Notoriedad):</strong> Pasar de 811 a 3,000 seguidores cualificados en Instagram en 6 meses, publicando contenido de valor 4 veces por semana.</li>
+                        <li><strong>Automatizar la Captura de Clientes (Eficiencia):</strong> Implementar un catálogo completo y 5 respuestas rápidas clave en WhatsApp Business en los próximos 15 días para reducir el tiempo de primera respuesta en un 50%.</li>
+                        <li><strong>Generar Ventas (Conversión):</strong> Lograr un promedio de 20 ventas semanales a través de canales digitales (WhatsApp, Instagram, Marketplace) en los próximos 3 meses.</li>
+                        <li><strong>Fidelizar Clientes (Retención):</strong> Conseguir que el 20% de los clientes de la línea de belleza realice una segunda compra en un plazo de 90 días, utilizando listas de difusión en WhatsApp.</li>
+                    </ol>
+                    
+                    <h4 id="estrategias-competitivas">Estrategias Competitivas (Modelo Porter)</h4>
+                    <ul>
+                        <li><strong>Línea Belleza (Uñas): ENFOQUE CON DIFERENCIACIÓN.</strong>
+                            <p><strong>Justificación:</strong> No se puede competir en precio con grandes importadores. La ventaja de Tecnopluscol es su <em>expertise</em>. La estrategia es posicionarse como <strong>la autoridad técnica en uñas <em>soft gel</em></strong> para el nicho de manicuristas profesionales. El valor no es el producto, es el conocimiento que lo respalda.</p>
+                        </li>
+                        <li><strong>Línea Tecnología: ENFOQUE EN "MEJOR VALOR".</strong>
+                            <p><strong>Justificación:</strong> En este mercado, el precio es un factor clave. La estrategia es seleccionar un portafolio curado de productos con una excelente relación costo/beneficio y competir en canales de venta directa como Facebook Marketplace, destacando la <strong>garantía local, el soporte por WhatsApp y la entrega rápida</strong> como diferenciadores.</p>
+                        </li>
+                    </ul>
+
+                    <h4 id="estrategias-promocion">Estrategias de Promoción y Ventas</h4>
+                    <p><strong>CANAL 1: WHATSAPP BUSINESS (El motor de ventas)</strong></p>
+                    <ul>
+                        <li><strong>Acción Inmediata (Costo $0):</strong>
+                            <ol>
+                                <li><strong>Catálogo Profesional:</strong> Subir los 15 productos más vendidos de cada línea con fotos de alta calidad, descripción, precio y un link directo de "Pedir ahora".</li>
+                                <li><strong>Respuestas Rápidas:</strong> Configurar plantillas para preguntas frecuentes: "Info de precios", "Métodos de pago", "Costo de envío", "Garantía", "Cómo comprar".</li>
+                                <li><strong>Etiquetas de Clientes:</strong> Crear etiquetas para organizar los chats: `Nuevo Lead`, `Cotización Enviada`, `Cliente Uñas`, `Cliente Tech`, `Postventa`.</li>
+                                <li><strong>Mensaje de Bienvenida:</strong> Automatizar un saludo cordial que guíe al usuario hacia el catálogo o a resolver sus dudas.</li>
+                            </ol>
+                        </li>
+                    </ul>
+                    
+                    <p><strong>CANAL 2: INSTAGRAM (La vitrina de autoridad)</strong></p>
+                    <ul>
+                        <li><strong>Contenido de Valor (80% Educativo, 20% Venta):</strong>
+                            <ul>
+                                <li><strong>Reels (3 por semana):</strong> Es el formato con mayor alcance orgánico. Ejemplos: "3 errores que cometes al aplicar <em>soft gel</em>", "Paso a paso para una preparación de uña perfecta", "¿Sabías que...?", mostrar trabajos de clientas.</li>
+                                <li><strong>Carruseles (1 por semana):</strong> Guías detalladas sobre temas técnicos.</li>
+                                <li><strong>Historias Diarias:</strong> Encuestas, "preguntas y respuestas", <em>unboxing</em> de nuevos productos, testimonios de clientes.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Bio Optimizada:</strong> La biografía debe ser clara: "Pioneros en Soft Gel en Colombia 🇨🇴 | Asesoría para Manicuristas Pro | Envíos a todo el país. 👇 Pide tu catálogo aquí". El enlace debe ir directo al chat de WhatsApp.</li>
+                        <li><strong>Colaboraciones (Costo $0):</strong> Contactar a 5 micro-influencers (1k-10k seguidores) del nicho de uñas y proponerles un <strong>intercambio de producto por contenido</strong> (historias y un reel).</li>
+                    </ul>
+                    
+                    <p><strong>CANAL 3: FACEBOOK MARKETPLACE (El canal de dinero rápido para tecnología)</strong></p>
+                    <ul>
+                        <li><strong>Acción Inmediata (Costo $0):</strong>
+                            <ol>
+                                <li>Publicar diariamente 3-5 productos de la línea de tecnología.</li>
+                                <li>Usar títulos claros y con palabras clave: "Tensiómetro Digital con Garantía - Envío Inmediato".</li>
+                                <li>En la descripción, siempre incluir un llamado a la acción para escribir por WhatsApp para una atención más rápida.</li>
+                                <li>Renovar las publicaciones cada 7 días para que vuelvan a aparecer en los primeros lugares.</li>
+                            </ol>
+                        </li>
+                    </ul>
+
+                    <h4 id="segmento-mercado">Segmento del Mercado y Público Objetivo</h4>
+                    <ul>
+                        <li><strong>Público Principal (Belleza): "Manicurista Emprendedora"</strong>
+                            <p>Mujer de 22-40 años, trabaja de forma independiente o en un salón pequeño. Valora la calidad, busca educarse para diferenciarse y es muy activa en Instagram y WhatsApp. Su decisión de compra se basa en la confianza y el rendimiento del producto.</p>
+                        </li>
+                        <li><strong>Público Secundario (Tecnología): "El Cuidador del Hogar"</strong>
+                            <p>Hombre o mujer de 30-55 años, busca productos prácticos y confiables para el cuidado de su familia. Compara precios en Facebook Marketplace o Mercado Libre y valora la atención rápida y la garantía local.</p>
+                        </li>
+                    </ul>
+
+                    <h2 id="conclusiones">4. Conclusiones del Análisis Estratégico</h2>
+                    <ol>
+                        <li><strong>El Oro está en la Especialización:</strong> El mayor activo de Tecnopluscol es su <strong>autoridad como pionero en <em>soft gel</em></strong>. Esta debe ser la punta de lanza de toda la comunicación. La marca debe ser sinónimo de "experto en uñas profesionales".</li>
+                        <li><strong>Eficiencia sobre Gasto:</strong> Con un presupuesto limitado, la prioridad es <strong>optimizar el proceso de ventas actual</strong>. La automatización básica de WhatsApp Business puede liberar horas de trabajo y duplicar la capacidad de respuesta sin invertir un solo peso.</li>
+                        <li><strong>Canales Diferenciados para Productos Diferenciados:</strong> La estrategia debe ser dual. <strong>Instagram para construir la marca y la comunidad de belleza</strong>. <strong>Facebook Marketplace para generar flujo de caja rápido con los productos de tecnología</strong>.</li>
+                        <li><strong>El Contenido es el Nuevo Anuncio:</strong> Sin dinero para pauta publicitaria masiva, el contenido educativo y útil (tutoriales, tips, guías) es la herramienta más poderosa para atraer clientes cualificados de manera orgánica.</li>
+                    </ol>
+                    <p><strong>Recomendación final:</strong> Ejecutar este plan de manera disciplinada durante los próximos 90 días. El éxito no dependerá de una gran inversión, sino de la <strong>consistencia en la creación de contenido de valor</strong> y la <strong>agilidad en la atención al cliente a través de WhatsApp</strong>. Al enfocarse en sus fortalezas y utilizar las herramientas gratuitas a su disposición, Tecnopluscol puede consolidar su liderazgo y lograr un crecimiento sostenible y rentable.</p>
+
+                    <h2 id="referencias">5. Referencias</h2>
+                    <div style="padding-left: 2rem; text-indent: -2rem;">
+                        <p style="margin-bottom: 1rem;">Asociación Colombiana de Comercio Electrónico. (2025). <em>Informe anual del comportamiento del eCommerce en Colombia</em>. CCE.</p>
+                        
+                        <p style="margin-bottom: 1rem;">Kotler, P., & Keller, K. L. (2016). <em>Dirección de marketing</em> (15ª ed.). Pearson Educación.</p>
+                        
+                        <p style="margin-bottom: 1rem;">Porter, M. E. (1985). <em>Competitive advantage: Creating and sustaining superior performance</em>. Free Press.</p>
+                        
+                        <p style="margin-bottom: 1rem;">República de Colombia. (2011). <em>Ley 1480 de 2011, por medio de la cual se expide el Estatuto del Consumidor</em>. Diario Oficial.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (fix de cierre de etiquetas) -->
+    <footer class="py-12 border-t border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="rocket" class="w-6 h-6 text-purple-400"></i>
+                        <span class="font-bold text-lg">Plan Estratégico</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Transformación digital para Tecnopluscol</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Navegación</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#hero" class="hover:text-purple-400 transition">Inicio</a></li>
+                        <li><a href="#dashboard" class="hover:text-purple-400 transition">Dashboard</a></li>
+                        <li><a href="#analisis" class="hover:text-purple-400 transition">Análisis</a></li>
+                        <li><a href="#download-section" class="hover:text-purple-400 transition">Descargar</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Información</h4>
+                    <p class="text-gray-400 text-sm mb-2">Arnold López Ayala</p>
+                    <p class="text-gray-400 text-sm mb-2">Consultor de Marketing Digital</p>
+                    <p class="text-gray-400 text-sm">Sincelejo, Colombia</p>
+                </div>
+            </div>
+            <div class="text-center pt-8 border-t border-white/10">
+                <p class="text-gray-500 text-sm">&copy; 2025 Arnold López Ayala. Todos los derechos reservados.</p>
+                <p class="text-gray-600 text-xs mt-2">Informe confidencial preparado exclusivamente para Tecnopluscol</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Inicializar Lucide Icons
+        lucide.createIcons();
+
+        // Inicializar AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Navegación sticky
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('sticky-nav');
+            if (window.scrollY > 100) nav.classList.add('active');
+            else nav.classList.remove('active');
+        });
+
+        // Smooth scroll para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Gráfico de Crecimiento
+        const growthCtx = document.getElementById('growthChart').getContext('2d');
+        const growthChart = new Chart(growthCtx, {
+            type: 'line',
+            data: {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                datasets: [{
+                    label: 'Ventas Proyectadas',
+                    data: [100, 115, 135, 160, 190, 225, 265, 310, 360, 415, 475, 540],
+                    borderColor: '#a855f7',
+                    backgroundColor: 'rgba(168, 85, 247, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    borderWidth: 3
+                }, {
+                    label: 'Seguidores',
+                    data: [811, 1000, 1300, 1650, 2050, 2500, 2800, 3000, 3200, 3500, 3800, 4200],
+                    borderColor: '#ec4899',
+                    backgroundColor: 'rgba(236, 72, 153, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: { color: '#d1d5db', font: { size: 12, family: 'Inter' } }
+                    }
+                },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#9ca3af' } },
+                    x: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#9ca3af' } }
+                }
+            }
+        });
+
+        // Gráfico de Canales
+        const channelsCtx = document.getElementById('channelsChart').getContext('2d');
+        const channelsChart = new Chart(channelsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['WhatsApp', 'Instagram', 'Facebook Marketplace', 'Otros'],
+                datasets: [{
+                    data: [45, 30, 20, 5],
+                    backgroundColor: ['#10b981', '#ec4899', '#3b82f6', '#6b7280'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#d1d5db', padding: 15, font: { size: 11, family: 'Inter' } }
+                    }
+                }
+            }
+        });
+
+        // Contador animado
+        function animateCounter(id, start, end, duration) {
+            const element = document.getElementById(id);
+            const range = end - start;
+            const increment = range / (duration / 16);
+            let current = start;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= end) {
+                    element.textContent = end;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Activar contadores cuando sean visibles
+        const observerOptions = { threshold: 0.5 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter('stat-followers', 0, 811, 2000);
+                    animateCounter('stat-growth', 0, 40, 2000);
+                    animateCounter('stat-months', 0, 12, 2000);
+                    animateCounter('stat-years', 0, 7, 2000);
+                    observer.disconnect();
+                }
+            });
+        }, observerOptions);
+        const statsSection = document.querySelector('#stat-followers').closest('section');
+        if (statsSection) observer.observe(statsSection);
+
+        // Notificaciones
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed bottom-8 right-8 glass-card px-6 py-4 rounded-lg shadow-2xl z-50 flex items-center gap-3';
+            notification.innerHTML = `
+                <i data-lucide="check-circle" class="w-6 h-6 text-green-400"></i>
+                <span>${message}</span>
+            `;
+            document.body.appendChild(notification);
+            lucide.createIcons();
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateY(20px)';
+                notification.style.transition = 'all 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        /* ========= Exportación APA 7 real (.Pdf) =========
+           - Limpia el HTML del informe
+           - Aplica estilos APA 7 (Times 12pt, doble espacio, sangrías)
+           - Evita viñetas/puntos "fantasma" y estilos web
+        */
+        function exportToWordAPA7(containerId, filename = 'Plan_Estrategico_Marketing_Digital_Tecnopluscol_APA7') {
+            const btn = document.getElementById('download-btn');
+            const originalHTML = btn ? btn.innerHTML : null;
+            if (btn) {
+                btn.innerHTML = '<div class="loading-spinner mx-auto"></div>';
+                btn.disabled = true;
+            }
+
+            try {
+                const container = document.getElementById(containerId);
+                if (!container) throw new Error('No se encontró el contenedor del informe');
+
+                // Tomar contenido principal (preferimos .prose)
+                const bodySource = container.querySelector('.prose') || container;
+
+                // Clonar y limpiar el contenido para Word
+                const clean = cloneAndCleanForWord(bodySource);
+
+                // Usar portada oculta si existe
+                const headerOriginal = container.querySelector('#word-header');
+                let titlePageHTML = '';
+                if (headerOriginal) {
+                    const headerClone = headerOriginal.cloneNode(true);
+                    headerClone.style.display = 'block';
+                    titlePageHTML = `
+                        <section class="title-page">
+                            ${headerClone.innerHTML}
+                        </section>
+                        <div class="page-break"></div>
+                    `;
+                }
+
+                // Envolver referencias para sangría francesa
+                const refsH2 = clean.querySelector('h2#referencias') || clean.querySelector('h2[id*="referen"]');
+                if (refsH2) {
+                    const refsWrapper = document.createElement('div');
+                    refsWrapper.id = 'apa-refs';
+                    let el = refsH2.nextElementSibling;
+                    // Mover todo hasta el siguiente H2
+                    while (el && el.tagName !== 'H2') {
+                        const next = el.nextElementSibling;
+                        refsWrapper.appendChild(el);
+                        el = next;
+                    }
+                    refsH2.parentNode.insertBefore(refsWrapper, refsH2.nextSibling);
+                }
+
+                // Estilos APA 7 para el documento
+                const apaStyles = `
+                    @page { margin: 1in; }
+                    body {
+                        font-family: "Times New Roman", Times, serif;
+                        font-size: 12pt;
+                        line-height: 2;
+                        color: #000;
+                    }
+                    .title-page { text-align: center; margin-top: 2in; }
+                    .title-page h1 { font-size: 16pt; font-weight: bold; margin: 0 0 24pt 0; }
+                    .title-page p { margin: 0 0 12pt 0; text-indent: 0; }
+                    .page-break { page-break-after: always; }
+
+                    .apa-body h1, .apa-body h2, .apa-body h3, .apa-body h4 {
+                        font-family: "Times New Roman", Times, serif;
+                        font-weight: bold;
+                        margin: 0;
+                        text-indent: 0;
+                        page-break-after: avoid;
+                    }
+                    .apa-body h1 { font-size: 16pt; margin-top: 0; margin-bottom: 24pt; text-align: center; }
+                    .apa-body h2 { font-size: 14pt; margin-top: 24pt; margin-bottom: 12pt; }
+                    .apa-body h3 { font-size: 12pt; font-style: italic; margin-top: 12pt; margin-bottom: 12pt; }
+                    .apa-body h4 { font-size: 12pt; margin-top: 12pt; margin-bottom: 6pt; }
+
+                    .apa-body p {
+                        margin: 0;
+                        text-align: justify;
+                        text-indent: 0.5in; /* sangría de primera línea */
+                    }
+                    /* Evitar sangría dentro de listas */
+                    .apa-body li p { text-indent: 0; }
+
+                    /* Listas controladas para evitar viñetas "raras" */
+                    .apa-body ul, .apa-body ol {
+                        margin: 0 0 12pt 0.5in;
+                        padding-left: 0;
+                    }
+                    .apa-body ul { list-style-type: disc; list-style-position: outside; }
+                    .apa-body ol { list-style-type: decimal; list-style-position: outside; }
+                    .apa-body li { margin: 0 0 6pt 0; }
+
+                    /* Tablas APA: bordes simples y tipografía a 10pt */
+                    .apa-body table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin: 12pt 0;
+                        font-size: 10pt;
+                    }
+                    .apa-body th, .apa-body td {
+                        border: 1px solid #000;
+                        padding: 6pt 8pt;
+                        text-align: left;
+                        vertical-align: top;
+                    }
+                    .apa-body th {
+                        background: #f0f0f0;
+                        font-weight: bold;
+                    }
+
+                    /* Referencias: sangría francesa */
+                    #apa-refs p {
+                        text-indent: -0.5in;
+                        margin-left: 0.5in;
+                        margin-bottom: 12pt;
+                    }
+
+                    /* Negritas y cursivas */
+                    strong { font-weight: bold; }
+                    em { font-style: italic; }
+                `;
+
+                const html = `
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <meta charset="utf-8">
+                        <title>Plan Estratégico - APA 7</title>
+                        <style>${apaStyles}</style>
+                    </head>
+                    <body>
+                        ${titlePageHTML}
+                        <div class="apa-body">
+                            ${clean.innerHTML}
+                        </div>
+                    </body>
+                    </html>
+                `;
+
+                // Convertir a DOCX
+                const blob = window.htmlDocx.asBlob(html, {
+                    orientation: 'portrait',
+                    margins: { top: 1440, right: 1440, bottom: 1440, left: 1440 } // 1" en twips
+                });
+
+                // Descargar
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename + '.docx';
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                URL.revokeObjectURL(url);
+
+                if (btn) {
+                    btn.innerHTML = originalHTML;
+                    btn.disabled = false;
+                    lucide.createIcons();
+                }
+                showNotification('¡Descarga exitosa! El informe se ha descargado en formato Pdf APA 7 (.Pdf).');
+            } catch (err) {
+                console.error(err);
+                if (btn) {
+                    btn.innerHTML = originalHTML;
+                    btn.disabled = false;
+                    lucide.createIcons();
+                }
+                showNotification('Ocurrió un error al generar el Pdf. Revisa la consola del navegador.');
+            }
+        }
+
+        /* Limpia el HTML del informe para Pdf: deja solo etiquetas semánticas y elimina estilos/íconos */
+        function cloneAndCleanForWord(element) {
+            const allowed = new Set(['H1','H2','H3','H4','P','UL','OL','LI','TABLE','THEAD','TBODY','TR','TH','TD','EM','STRONG']);
+            const clone = element.cloneNode(true);
+
+            // Eliminar elementos no necesarios
+            clone.querySelectorAll('script, style, button, svg, i').forEach(n => n.remove());
+
+            // Desenrollar wrappers no permitidos y quitar atributos
+            const all = Array.from(clone.querySelectorAll('*'));
+            all.forEach(n => {
+                const tag = n.tagName;
+                if (!allowed.has(tag)) {
+                    const parent = n.parentNode;
+                    if (!parent) return;
+                    while (n.firstChild) parent.insertBefore(n.firstChild, n);
+                    parent.removeChild(n);
+                    return;
+                }
+                // Conservar solo colspan/rowspan en celdas de tabla
+                const keep = {};
+                if ((tag === 'TD' || tag === 'TH') && n.hasAttribute('colspan')) keep.colspan = n.getAttribute('colspan');
+                if ((tag === 'TD' || tag === 'TH') && n.hasAttribute('rowspan')) keep.rowspan = n.getAttribute('rowspan');
+                [...n.attributes].forEach(a => n.removeAttribute(a.name));
+                if (keep.colspan) n.setAttribute('colspan', keep.colspan);
+                if (keep.rowspan) n.setAttribute('rowspan', keep.rowspan);
+            });
+
+            // Eliminar portada oculta si vino dentro del .prose
+            const hiddenHeader = clone.querySelector('#word-header');
+            if (hiddenHeader) hiddenHeader.remove();
+
+            return clone;
+        }
+
+        // Event listener para el botón de descarga (usa la nueva función APA 7 DOCX)
+        document.getElementById('download-btn').addEventListener('click', function() {
+            exportToWordAPA7('report-content', 'Plan_Estrategico_Marketing_Digital_Tecnopluscol_APA7');
+        });
+
+        // Recrear iconos después de que AOS termine las animaciones
+        document.addEventListener('aos:in', ({ detail }) => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
