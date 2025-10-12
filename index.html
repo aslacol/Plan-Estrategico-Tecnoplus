@@ -398,12 +398,12 @@
                         <div class="text-sm text-gray-400">Crecimiento Ventas</div>
                     </div>
                     <div class="glass-card p-4 rounded-xl">
-                        <div class="text-3xl font-bold gradient-text">3,000</div>
+                        <div class="text-3xl font-bold gradient-text">5,000</div>
                         <div class="text-sm text-gray-400">Seguidores Meta</div>
                     </div>
                     <div class="glass-card p-4 rounded-xl">
-                        <div class="text-3xl font-bold gradient-text">20</div>
-                        <div class="text-sm text-gray-400">Ventas Semanales</div>
+                        <div class="text-3xl font-bold gradient-text">70%</div>
+                        <div class="text-sm text-gray-400">Ventas por WhatsApp</div>
                     </div>
                     <div class="glass-card p-4 rounded-xl">
                         <div class="text-3xl font-bold gradient-text">12</div>
@@ -545,24 +545,24 @@
     </section>
 
     <!-- Sección de Estadísticas Animadas -->
-    <section class="py-20 bg-gradient-to-r from-purple-900/20 to-pink-900/20">
+    <section id="stats-section" class="py-20 bg-gradient-to-r from-purple-900/20 to-pink-900/20">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-4 gap-8">
                 <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="stat-number gradient-text mb-2" id="stat-followers">811</div>
+                    <div class="stat-number gradient-text mb-2" id="stat-followers">0</div>
                     <div class="text-gray-400 font-semibold">Seguidores Actuales</div>
                 </div>
                 <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="stat-number gradient-text mb-2" id="stat-growth">40</div>
+                    <div class="stat-number gradient-text mb-2" id="stat-growth">0</div>
                     <div class="text-gray-400 font-semibold">% Crecimiento Meta</div>
                 </div>
                 <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="stat-number gradient-text mb-2" id="stat-months">12</div>
-                    <div class="text-gray-400 font-semibold">Meses del Plan</div>
+                    <div class="stat-number gradient-text mb-2" id="stat-target-followers">0</div>
+                    <div class="text-gray-400 font-semibold">Seguidores Meta</div>
                 </div>
                 <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="stat-number gradient-text mb-2" id="stat-years">7</div>
-                    <div class="text-gray-400 font-semibold">Años de Experiencia</div>
+                    <div class="stat-number gradient-text mb-2" id="stat-months">0</div>
+                    <div class="text-gray-400 font-semibold">Meses del Plan</div>
                 </div>
             </div>
         </div>
@@ -1059,10 +1059,10 @@
         const growthChart = new Chart(growthCtx, {
             type: 'line',
             data: {
-                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                labels: ['Nov 25', 'Dic 25', 'Ene 26', 'Feb 26', 'Mar 26', 'Abr 26', 'May 26', 'Jun 26', 'Jul 26', 'Ago 26', 'Sep 26', 'Oct 26'],
                 datasets: [{
-                    label: 'Ventas Proyectadas',
-                    data: [100, 115, 135, 160, 190, 225, 265, 310, 360, 415, 475, 540],
+                    label: 'Crecimiento de Ventas Proyectado (%)',
+                    data: [0, 4, 8, 12, 16, 20, 25, 30, 33, 36, 38, 40],
                     borderColor: '#a855f7',
                     backgroundColor: 'rgba(168, 85, 247, 0.1)',
                     tension: 0.4,
@@ -1070,7 +1070,7 @@
                     borderWidth: 3
                 }, {
                     label: 'Seguidores',
-                    data: [811, 1000, 1300, 1650, 2050, 2500, 2800, 3000, 3200, 3500, 3800, 4200],
+                    data: [811, 1100, 1400, 1750, 2150, 2600, 3000, 3450, 3900, 4350, 4700, 5000],
                     borderColor: '#ec4899',
                     backgroundColor: 'rgba(236, 72, 153, 0.1)',
                     tension: 0.4,
@@ -1083,10 +1083,40 @@
                 plugins: {
                     legend: {
                         labels: { color: '#d1d5db', font: { size: 12, family: 'Inter' } }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    // Añade el símbolo '%' solo al dataset de Ventas
+                                    if (context.datasetIndex === 0) {
+                                        label += context.parsed.y + '%';
+                                    } else {
+                                        label += context.parsed.y;
+                                    }
+                                }
+                                return label;
+                            }
+                        }
                     }
                 },
                 scales: {
-                    y: { beginAtZero: true, grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#9ca3af' } },
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' }, 
+                        ticks: { 
+                            color: '#9ca3af',
+                            callback: function(value, index, values) {
+                                // Muestra los ticks del eje Y como porcentajes si son del primer dataset
+                                // Opcional: Esto es más complejo, mejor dejar el tooltip claro.
+                                return value;
+                            }
+                        } 
+                    },
                     x: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#9ca3af' } }
                 }
             }
@@ -1115,38 +1145,39 @@
             }
         });
 
-        // Contador animado
+        // Contador animado (versión mejorada para mayor fluidez)
         function animateCounter(id, start, end, duration) {
             const element = document.getElementById(id);
             if (!element) return;
-            const range = end - start;
-            let current = start;
-            const increment = end > start ? 1 : -1;
-            const stepTime = Math.abs(Math.floor(duration / range));
-            const timer = setInterval(() => {
-                current += increment;
-                element.textContent = current;
-                if (current == end) {
-                    clearInterval(timer);
+            let startTime = null;
+
+            const step = (timestamp) => {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                element.textContent = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
                 }
-            }, stepTime);
+            };
+            window.requestAnimationFrame(step);
         }
 
         // Activar contadores cuando sean visibles
-        const observerOptions = { threshold: 0.5 };
+        const observerOptions = { threshold: 0.2 };
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    animateCounter('stat-followers', 0, 811, 1500);
-                    animateCounter('stat-growth', 0, 40, 1500);
-                    animateCounter('stat-months', 0, 12, 1500);
-                    animateCounter('stat-years', 0, 7, 1500);
+                    // Duraciones ajustadas para ser más largas y para que los números más grandes terminen después.
+                    animateCounter('stat-months', 0, 12, 3000);
+                    animateCounter('stat-growth', 0, 40, 3500);
+                    animateCounter('stat-followers', 0, 811, 4000);
+                    animateCounter('stat-target-followers', 0, 5000, 4500);
                     obs.disconnect(); // Disconnect after firing once
                 }
             });
         }, observerOptions);
-        const statsSection = document.querySelector('#stat-followers');
-        if (statsSection) observer.observe(statsSection.closest('section'));
+        const statsSection = document.querySelector('#stats-section');
+        if (statsSection) observer.observe(statsSection);
 
         // Lógica de descarga
         const downloadBtn = document.getElementById('download-btn');
